@@ -1,0 +1,108 @@
+### Localization
+# Preseeding only locale sets language, country and locale.
+d-i debian-installer/locale string en_US
+
+# Keyboard selection
+# Disable automatic (interactive) keymap detection
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/layoutcode string us
+
+#Step 6
+ubiquity ubiquity/summary note
+ubiquity ubiquity/reboot boolean true
+
+### Network configuration
+
+d-i netcfg/get_hostname string laptop
+d-i netcfg/get_domain string training
+
+
+
+### Mirror settings
+# d-i mirror/http/mirror select CC.archive.ubuntu.com
+ubiquity languagechooser/language-name select English
+ubiquity countrychooser/shortlist select US
+ubiquity localchooser/supported-locales select un_US.UTF-8
+
+
+#Settings above are not available for preseed with netboot
+############################################################
+#Settings below are available for preseed with netboot
+
+
+### Clock and time zone setup
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+d-i time/zone string US/Central
+
+# Controls whether to use NTP to set the clock during the install
+d-i clock-setup/ntp boolean true
+
+
+
+### Account setup
+# To create a normal user account.
+d-i passwd/user-fullname string Laptop User
+d-i passwd/username string user
+
+# Normal user's password, either in clear text
+d-i passwd/user-password password user
+d-i passwd/user-password-again password user
+
+# The installer will warn about weak passwords. If you are sure you know
+# what you're doing and want to override it, uncomment this.
+d-i user-setup/allow-password-weak boolean true
+
+# Set to true if you want to encrypt the first user's home directory.
+d-i user-setup/encrypt-home boolean false
+ubiquity  passwd/auto-login boolean true
+
+
+
+### Partitioning
+d-i partman-auto/method string regular
+# d-i partman-auto/init_automatically_partition select biggest_free
+
+# You can choose one of the three predefined partitioning recipes:
+# - atomic: all files in one partition
+# - home:   separate /home partition
+# - multi:  separate /home, /usr, /var, and /tmp partitions
+d-i partman-auto/choose_recipe select home
+
+d-i partman/default_filesystem string btrfs
+
+# This makes partman automatically partition without confirmation, provided
+# that you told it what to do using one of the methods above.
+d-i partman/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+
+
+### Package selection
+tasksel	tasksel/first	multiselect ubuntu-desktop
+#tasksel tasksel/first multiselect xubuntu-desktop
+
+##Maybe replace parts of our install.txt
+# Individual additional packages to install
+#d-i pkgsel/include string
+# Whether to upgrade packages after debootstrap.
+# Allowed values: none, safe-upgrade, full-upgrade
+#d-i pkgsel/upgrade select none
+
+# Policy for applying updates. May be "none" (no automatic updates),
+# "unattended-upgrades" (install security updates automatically), or
+# "landscape" (manage system with Landscape).
+d-i pkgsel/update-policy select none
+
+
+
+### Boot loader installation
+# Grub is the default boot loader (for x86).
+d-i grub-installer/only_debian boolean true
+
+### Finishing up the installation
+# Avoid that last message about the install being complete.
+d-i finish-install/reboot_in_progress note
