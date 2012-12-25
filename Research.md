@@ -1,31 +1,31 @@
-https://wiki.ubuntu.com/DesktopCDOptions
-https://wiki.ubuntu.com/UbiquityAutomation
-http://wiki.debian.org/DebianInstaller/Preseed
-https://help.ubuntu.com/12.04/installation-guide/i386/appendix-preseed.html
-https://help.ubuntu.com/12.04/installation-guide/example-preseed.txt
-https://help.ubuntu.com/12.10/installation-guide/i386/preseed-contents.html
-https://help.ubuntu.com/12.10/installation-guide/i386/preseed-using.html
-https://raw.github.com/freegeekchicago/preseed/master/xubuntu1204x32.seed
-https://github.com/freegeekchicago/preseed
-http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/
-http://pastebin.com/s7tRYxxu
-https://wiki.ubuntu.com/Installer/FAQ
+* https://wiki.ubuntu.com/DesktopCDOptions
+* https://wiki.ubuntu.com/UbiquityAutomation
+* http://wiki.debian.org/DebianInstaller/Preseed
+* https://help.ubuntu.com/12.04/installation-guide/i386/appendix-preseed.html
+* https://help.ubuntu.com/12.04/installation-guide/example-preseed.txt
+* https://help.ubuntu.com/12.10/installation-guide/i386/preseed-contents.html
+* https://help.ubuntu.com/12.10/installation-guide/i386/preseed-using.html
+* https://raw.github.com/freegeekchicago/preseed/master/xubuntu1204x32.seed
+* https://github.com/freegeekchicago/preseed
+* http://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/
+* http://pastebin.com/s7tRYxxu
+* https://wiki.ubuntu.com/Installer/FAQ
 # started from here to mount the iso
-http://askubuntu.com/questions/128995/grub2-loopback-booting-ubuntu-server-iso
-http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu
+* http://askubuntu.com/questions/128995/grub2-loopback-booting-ubuntu-server-iso
+* http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu
 
 Overall:
-https://wiki.ubuntu.com/SeedManagement
-http://hands.com/d-i/
+* https://wiki.ubuntu.com/SeedManagement
+* http://hands.com/d-i/
 
-http://ubuntuforums.org/showthread.php?t=1622388
+* http://ubuntuforums.org/showthread.php?t=1622388
 
 
-https://github.com/jpoppe/seedBank/
+* https://github.com/jpoppe/seedBank/
 
 
 # would love to automate around this
-http://superuser.com/questions/319661/what-does-the-following-disks-have-mounted-partitions-mean-while-installing-ub
+* http://superuser.com/questions/319661/what-does-the-following-disks-have-mounted-partitions-mean-while-installing-ub
 
 Because our usb is obviosly mounted, but we don't want to display this error... possibly would like to ever remove this usb from the list of partitions listed/viewed by the UI / ubiquity
 
