@@ -9,7 +9,7 @@ open(solo_json_file,'w+') do |f|
         "recipe[ii-usb::create-usb-solo]"
         ],
       'ii-usb' => {
-        'target-device' => ENV['TARGETUSB']
+        'target-device' => ENV['TARGETUSB'] # We do this to force setting it at runtime
       }
     }.to_json
     )
