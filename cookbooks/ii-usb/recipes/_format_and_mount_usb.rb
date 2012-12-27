@@ -2,13 +2,15 @@
 current_usb_mount = %x{cat /proc/mounts  | grep sdc1 | cut -f 2 -d\\ }.chomp
 if not current_usb_mount.empty?
   mount current_usb_mount do
+    # don't unmount if we don't need to format
+    not_if "blkid -s LABEL #{node['ii-usb']['target-device']}1 | grep #{node['ii-usb']['volume-name']}"
     device "#{node['ii-usb']['target-device']}1"
     action :umount
-    # only_if "cat /proc/mounts | grep #{node['ii-usb']['target-device']}1"
   end
 end
 
 bash "partition and format #{node['ii-usb']['target-device']}" do
+  # don't format if we already have the correct volume name
   not_if "blkid -s LABEL #{node['ii-usb']['target-device']}1 | grep #{node['ii-usb']['volume-name']}"
   code <<-eoc
     parted -s ${USB} mklabel msdos 

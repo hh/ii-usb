@@ -6,6 +6,6 @@ directory "#{node['ii-usb']['target-mountpoint']}/cache"
   file target_file do
     content node['ii-usb'][cf]['src']['cache']
     provider Chef::Provider::File::Copy
-    not_if {File.size(target_file) > 10 * 1000 * 1000 }# at least 10 meg... speeds things up
+    not_if {File.file?(target_file) && File.size(target_file) > 10*100*100 }
   end
 end
